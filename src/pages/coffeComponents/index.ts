@@ -1,0 +1,1 @@
+export { CoffeComponent } from './CoffeComponent';
