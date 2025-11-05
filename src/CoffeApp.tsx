@@ -32,7 +32,6 @@ const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
     }
 
     fetchData();
-
   },[]);
 
   const handleSearch = useCallback(async(query:string) => {
@@ -45,6 +44,7 @@ const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
 
     try {
     const results = await getCoffeeByName(query);
+    console.log(results)
     if (results.length > 0) {
       setCoffe(results);
     } else {
