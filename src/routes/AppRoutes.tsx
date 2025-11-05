@@ -4,6 +4,8 @@ import { CoffeApp } from "../CoffeApp";
 import { BlogsPage } from "../pages/BlogsPage.pages";
 import { RegisterPage } from "../pages/RegisterPage";
 import { LoginPage } from "../pages/loginPage.pages";
+import { AboutPage } from "../pages/AboutPage.pages";
+
 
 
 
@@ -28,6 +30,11 @@ export const AppRoutes = () => {
 
         {/* Login */}
         <Route path="/login" element={<LoginPage />} />
+
+        {/* About Us */}
+        <Route path="/about" element={<AboutPage />} />
+        
+
         
 
         {/* 404 */}
