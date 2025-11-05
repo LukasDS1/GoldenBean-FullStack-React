@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { AppRoutes } from './routes/AppRoutes'
 import { Footer } from "./pages/sharedComponents/Footer";
+import '../../GoldenBean-project/index.css';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -1,0 +1,14 @@
+.about-content {
+  max-height: 350px;
+  overflow-y: auto;
+  text-align: justify;
+  padding-right: 8px;
+}
+
+.about-content::-webkit-scrollbar {
+  width: 8px;
+}
+.about-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 193, 7, 0.85);
+  border-radius: 4px;
+}
