@@ -1,0 +1,1 @@
+export { CafeDetailComponent } from "./coffeDetail";

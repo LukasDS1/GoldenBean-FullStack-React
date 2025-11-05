@@ -2,14 +2,17 @@ import { CardTitleComponent } from "./CardTitleComponent";
 import { CardTextComponent } from "./CardTextComponent";
 import { capitalizeFirst } from '../../helpers'
 import type { coffeeProps } from "../../interfaces/coffe.interfaces"
+import { useNavigate } from "react-router-dom";
+
 
 interface Props {
     coffe:coffeeProps;
-       addToCart: (item: coffeeProps) => void;}
+       addToCart: (item: coffeeProps) => void;
+      }
 
 
 export const CardBodyComponent = ({ coffe,addToCart }:Props) => {
-
+ const navigate = useNavigate();
 
   return (
     <div className="card-body text-center">
@@ -17,6 +20,12 @@ export const CardBodyComponent = ({ coffe,addToCart }:Props) => {
   <CardTextComponent descripcion={ capitalizeFirst(coffe.descripcion) } />
 
   <div className="d-flex justify-content-center gap-3 mt-3">
+    <button
+          className="btn btn-primary"
+          onClick={() => navigate(`/cafe/${coffe.id}`)}
+        >
+          <i className="fa-solid fa-eye"></i> Ver más
+        </button>
     <button
       className="btn btn-success"
       onClick={() => addToCart(coffe)}
