@@ -9,16 +9,17 @@ import type { coffeeProps } from "../../interfaces/coffe.interfaces"
 
 interface Props {
     coffe:coffeeProps;
-}
+       addToCart: (item: coffeeProps) => void;}
 
-export const CardBodyComponent = ({ coffe }:Props) => {
+
+export const CardBodyComponent = ({ coffe,addToCart }:Props) => {
 
   const navigate = useNavigate();
 
-  const handleShowRobot = ( robot:coffeeProps ) => {
+  const handleShowCoffe = ( coffe:coffeeProps ) => {
     
-    console.log("Entra en en handleShowRobot");
-    navigate(`/robot-component/${robot.id}`);
+    console.log("Entra en en handleShowCoffe");
+    navigate(`/coffe/${coffe.id}`);
   }
 
   return (
@@ -29,14 +30,14 @@ export const CardBodyComponent = ({ coffe }:Props) => {
   <div className="d-flex justify-content-center gap-3 mt-3">
     <button
       className="btn btn-primary"
-      onClick={() => handleShowRobot(coffe)}
+      onClick={() => handleShowCoffe(coffe)}
     >
       <i className="fa-solid fa-eye"></i> Ver mas...
     </button>
 
     <button
       className="btn btn-success"
-      onClick={() => handleShowRobot(coffe)}
+      onClick={() => addToCart(coffe)}
     >
       <i className="fa-solid fa-basket-shopping"></i> Comprar
     </button>

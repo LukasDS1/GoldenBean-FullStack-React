@@ -2,12 +2,12 @@
 import { CardBodyComponent } from "./CardBodyComponent";
 import type { coffeeProps } from "../../interfaces/coffe.interfaces"
 
-interface Props{
-    coffe:coffeeProps[];
+interface Props {
+  coffe: coffeeProps[];
+  addToCart: (item: coffeeProps) => void;
 }
 
-
-export const CardComponent = ({ coffe }:Props) => {
+export const CardComponent = ({ coffe,addToCart }:Props) => {
 
 
   const coffeArray = Array.isArray(coffe) ? coffe : [coffe]
@@ -33,7 +33,8 @@ export const CardComponent = ({ coffe }:Props) => {
                   objectFit: "contain"
                 }}
               />
-              <CardBodyComponent coffe={coffe} />
+              <CardBodyComponent coffe={coffe} addToCart={addToCart} />
+
             </div>
           </div>
         ))}

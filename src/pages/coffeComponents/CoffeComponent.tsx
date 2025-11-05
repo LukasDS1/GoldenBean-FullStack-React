@@ -119,10 +119,9 @@ export const CoffeComponent = () => {
         </div>
         <div className="col-lg-6 col-md-12">
           <div className="p-3">
-            {/* Nombre del robot */}
+       
             <h1 className="display-4 fw-bold text-primary mb-4">{coffeName}</h1>
 
-            {/* Frase característica */}
             <div className="mb-4">
               <h5 className="text-info">
                 <i className="fa-solid fa-quote-left me-2"></i>

@@ -5,8 +5,7 @@ import "./HomePage.css";
 export const HomePage = () => {
   return (
     <>
-      <NavBar onQuery={() => {}} />
-
+      <NavBar onQuery={() => {}} cart={[]} showCart={false} increaseQty={() => {}} decreaseQty={() => {}} clearCart={() => {}}/>
       <div
         className="min-vh-100 w-100"
         style={{

@@ -1,4 +1,4 @@
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { useCallback, useEffect , useState } from 'react';
 
 import { NavBar , CardComponent } from './pages/coffesComponents/index.ts';
@@ -7,12 +7,16 @@ import { getCoffebyActions , getCoffeeByName } from './actions/index.ts';
          
 import type { coffeeProps } from './interfaces/coffe.interfaces.ts';
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { useCart } from './hooks/useCarts.ts';
 
 export const CoffeApp = () => {
 
   const [ coffes , setCoffe ] = useState<coffeeProps[]>([]);  
   const [ allCoffes , setAllCoffes ] = useState<coffeeProps[]>([]);
+
+const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
+
 
   useEffect(()=> {
 
@@ -65,8 +69,17 @@ export const CoffeApp = () => {
       }}
     >      
       <div className="row">
-        <NavBar onQuery={handleSearch} />        
-        <CardComponent coffe={coffes} />
+        
+    <NavBar 
+  onQuery={handleSearch}
+  cart={cart}
+  increaseQty={increaseQty}
+  decreaseQty={decreaseQty}
+  clearCart={clearCart}
+/>
+    
+        <CardComponent coffe={coffes} addToCart={addToCart} />
+
       </div>
     </div>
   )
