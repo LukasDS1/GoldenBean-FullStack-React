@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import type { coffeeProps } from "../../interfaces/coffe.interfaces";
 import { capitalizeFirst } from "../../helpers";
 import { getCoffeById } from "../../actions/get-coffe-by-id.actions";
-import { NavBar } from "../sharedComponents/NavBar"; 
 
 export const CafeDetailComponent = () => {
   const navigate = useNavigate();
