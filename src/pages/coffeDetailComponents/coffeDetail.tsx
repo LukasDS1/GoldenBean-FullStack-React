@@ -50,7 +50,6 @@ export const CafeDetailComponent = () => {
     );
   }
 
-  // Mapear propiedades reales de tu API
   const coffeName = capitalizeFirst(coffe.nombre);
   const coffeDescription = coffe.descripcion;
   const coffeImg = coffe.imagen;
