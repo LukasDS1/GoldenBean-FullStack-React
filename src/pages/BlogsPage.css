@@ -1,0 +1,37 @@
+.blogs-bg {
+  background-image: url("/src/assets/img/fondo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.titulo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.letras {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+}
+
+.carousel-item {
+  padding: 25px;
+  text-align: justify;
+}
+
+.titulo,
+.titulo2 {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.letras {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.85);
+}
+
+.titulo2 {
+  color: #ffc107; 
+  text-shadow: 0 0 10px rgba(255, 193, 7, 0.8), 2px 2px 6px rgba(0, 0, 0, 0.9);
+}

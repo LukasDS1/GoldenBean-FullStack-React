@@ -1,12 +1,15 @@
-import { useEffect, useState , type KeyboardEvent } from 'react';
+import { useEffect, useState, type KeyboardEvent } from 'react';
 import { Navbar, Nav, NavDropdown, Container, Form, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import type { CartItem } from "../../interfaces/cart.interfaces";
-import { CartModal} from "../cartComponent/cartModal";
+import { CartModal } from "../cartComponent/cartModal";
+import { getLoggedUser, logoutUser } from "../../utils/userStorage";
+import { useNavigate } from "react-router-dom";
+
 
 
 interface Props {
-  onQuery: (query:string) => void;  
+  onQuery: (query: string) => void;
   cart: CartItem[];
   showCart?: boolean;
   increaseQty: (id: number) => void;
@@ -14,10 +17,19 @@ interface Props {
   clearCart: () => void;
 }
 
-export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQty,clearCart }: Props) => {
+export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQty, clearCart }: Props) => {
   const [query, setQuery] = useState('');
   const [showModal, setShowModal] = useState(false);
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const navigate = useNavigate();
+  const user = getLoggedUser();
+
+  const handleLogout = () => {
+    logoutUser();
+    navigate("/");
+    window.location.reload();
+  };
+
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
@@ -52,20 +64,43 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
                 Catalogo
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/" className="text-white">
-                Link
+              <Nav.Link as={Link} to="/blogs" className="text-white">
+                Blogs
               </Nav.Link>
 
-              <NavDropdown 
-                title={<span className="text-white"><i className="fa-solid fa-list me-1"></i>Sagas</span>}
+              <NavDropdown
+                title={<span className="text-white"><i className="fa-solid fa-list me-1"></i>Más</span>}
                 id="basic-nav-dropdown"
                 menuVariant="dark"
               >
-                <NavDropdown.Item className="text-white">Megaman Clásico</NavDropdown.Item>
-                <NavDropdown.Item className="text-white">Megaman X</NavDropdown.Item>
-                <NavDropdown.Divider className="bg-secondary" />
-                <NavDropdown.Item className="text-white">Otras Sagas</NavDropdown.Item>
+
+                {user ? (
+                  <>
+                    <NavDropdown.Item className="text-white disabled">
+                      Hola, {user.nombre}
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider className="bg-secondary" />
+                    <NavDropdown.Item onClick={handleLogout} className="text-white">
+                      Cerrar sesión
+                    </NavDropdown.Item>
+                  </>
+                ) : (
+                  <>
+                    <NavDropdown.Item as={Link} to="/login" className="text-white">
+                      Iniciar sesión
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/register" className="text-white">
+                      Registrarse
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider className="bg-secondary" />
+                    <NavDropdown.Item as={Link} to="/about" className="text-white">
+                      Acerca de...
+                    </NavDropdown.Item>
+                  </>
+                )}
+
               </NavDropdown>
+
             </Nav>
 
             <Form className="d-flex">
@@ -85,13 +120,15 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
 
               {/* BOTÓN CARRITO */}
               <Button
-                onClick={() =>{
-                  if (!showCart){
+                onClick={() => {
+                  if (!showCart) {
                     alert("Carrito no disponible en esta vista");
-                  return;}
-                  setShowModal(true)}
+                    return;
+                  }
+                  setShowModal(true)
                 }
-                  
+                }
+
                 variant="outline-light"
                 className="border-secondary text-white ms-2 position-relative"
               >
@@ -108,7 +145,7 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <CartModal 
+      <CartModal
         show={showModal}
         onClose={() => setShowModal(false)}
         cart={cart}

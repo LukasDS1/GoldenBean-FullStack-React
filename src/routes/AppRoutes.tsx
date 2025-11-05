@@ -1,7 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from "../pages/homePage.pages";
 import { CoffeApp } from "../CoffeApp";
-import { CoffeComponent } from "../pages/coffeComponents/CoffeComponent"; 
+import { BlogsPage } from "../pages/BlogsPage.pages";
+import { RegisterPage } from "../pages/RegisterPage";
+import { LoginPage } from "../pages/loginPage.pages";
+
+
+
+
 
 export const AppRoutes = () => {
   return (
@@ -13,8 +19,15 @@ export const AppRoutes = () => {
         {/* Catálogo */}
         <Route path="/catalogo" element={<CoffeApp />} />
         
-        {/* Detalle café */}
-        <Route path="/coffe/:id" element={<CoffeComponent />} />
+
+        {/* Página vlogs */}
+        <Route path="/blogs" element={<BlogsPage/>} /> 
+        
+        {/* Registro */}
+        <Route path="/register" element={<RegisterPage />} />
+
+        {/* Login */}
+        <Route path="/login" element={<LoginPage />} />
         
 
         {/* 404 */}
