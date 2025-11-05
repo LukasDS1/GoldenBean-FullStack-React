@@ -1,37 +1,60 @@
-.blogs-bg {
-  background-image: url("/src/assets/img/fondo.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+.blog-box {
+  width: 900px;
+  min-height: 550px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 40px;
+  border-radius: 18px;
+  backdrop-filter: blur(7px);
+  box-shadow: 0px 6px 30px rgba(0,0,0,0.55);
+  border: 2px solid rgba(255, 193, 7, 0.4);
 }
 
-.titulo {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
+
+.blog-carousel .carousel-inner {
+  height: 330px;
+  padding: 30px;
+  overflow: hidden;
 }
 
-.letras {
-  font-size: 1.1rem;
-  line-height: 1.6rem;
+
+.blog-carousel article {
+  height: 100%;
+  overflow-y: auto;
 }
 
-.carousel-item {
-  padding: 25px;
+
+.blog-carousel .carousel-control-prev-icon,
+.blog-carousel .carousel-control-next-icon {
+  filter: brightness(0) invert(1);
+}
+
+
+.blog-carousel article::-webkit-scrollbar {
+  width: 7px;
+}
+.blog-carousel article::-webkit-scrollbar-thumb {
+  background: rgba(255, 193, 7, 0.85);
+  border-radius: 4px;
+}
+
+.blog-carousel .carousel-control-prev,
+.blog-carousel .carousel-control-next {
+  width: 50px; 
+}
+
+.blog-carousel .carousel-control-prev {
+  left: -55px; 
+}
+
+.blog-carousel .carousel-control-next {
+  right: -55px; 
+}
+
+.blog-carousel article {
   text-align: justify;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 }
 
-.titulo,
-.titulo2 {
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-}
-
-.letras {
-  font-size: 1.1rem;
-  line-height: 1.6rem;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.85);
-}
-
-.titulo2 {
-  color: #ffc107; 
-  text-shadow: 0 0 10px rgba(255, 193, 7, 0.8), 2px 2px 6px rgba(0, 0, 0, 0.9);
-}

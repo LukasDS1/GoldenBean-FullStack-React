@@ -83,6 +83,10 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
                     <NavDropdown.Item onClick={handleLogout} className="text-white">
                       Cerrar sesión
                     </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/about" className="text-white">
+                     Acerca de...
+                    </NavDropdown.Item>
+
                   </>
                 ) : (
                   <>
@@ -93,9 +97,10 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
                       Registrarse
                     </NavDropdown.Item>
                     <NavDropdown.Divider className="bg-secondary" />
-                    <NavDropdown.Item as={Link} to="/about" className="text-white">
-                      Acerca de...
-                    </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/about" className="text-white">
+                        Acerca de...
+                      </NavDropdown.Item>
+
                   </>
                 )}
 
