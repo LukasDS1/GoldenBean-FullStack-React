@@ -29,6 +29,8 @@ export const CardComponent = ({ coffe,addToCart }:Props) => {
 
               <CardBodyComponent coffe={coffe} addToCart={addToCart} />
 
+              
+
             </div>
           </div>
         ))}

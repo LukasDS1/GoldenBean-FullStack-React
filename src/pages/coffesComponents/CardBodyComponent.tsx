@@ -3,13 +3,13 @@ import { CardTextComponent } from "./CardTextComponent";
 import { capitalizeFirst } from '../../helpers'
 import type { coffeeProps } from "../../interfaces/coffe.interfaces"
 import { useNavigate } from "react-router-dom";
+import {CardPriceComponent} from "./CardPriceComponent";
 
 
 interface Props {
     coffe:coffeeProps;
        addToCart: (item: coffeeProps) => void;
-      }
-
+}
 
 export const CardBodyComponent = ({ coffe,addToCart }:Props) => {
  const navigate = useNavigate();
@@ -18,6 +18,7 @@ export const CardBodyComponent = ({ coffe,addToCart }:Props) => {
     <div className="card-body text-center">
   <CardTitleComponent name={ capitalizeFirst(coffe.nombre) } />        
   <CardTextComponent descripcion={ capitalizeFirst(coffe.descripcion) } />
+  <CardPriceComponent precioCLP={coffe.precioCLP} />
 
   <div className="d-flex justify-content-center gap-3 mt-3">
     <button
