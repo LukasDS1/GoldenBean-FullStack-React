@@ -15,7 +15,7 @@ export const CoffeApp = () => {
   const [ coffes , setCoffe ] = useState<coffeeProps[]>([]);  
   const [ allCoffes , setAllCoffes ] = useState<coffeeProps[]>([]);
 
-const { cart, addToCart, increaseQty, decreaseQty } = useCart();
+const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
 
 
   useEffect(()=> {
@@ -75,6 +75,7 @@ const { cart, addToCart, increaseQty, decreaseQty } = useCart();
   cart={cart}
   increaseQty={increaseQty}
   decreaseQty={decreaseQty}
+  clearCart={clearCart}
 />
     
         <CardComponent coffe={coffes} addToCart={addToCart} />

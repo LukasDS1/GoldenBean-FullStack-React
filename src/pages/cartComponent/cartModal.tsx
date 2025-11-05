@@ -1,6 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
 import type { CartItem } from "../../interfaces/cart.interfaces";
-import { useCart } from "../../hooks/useCarts";
 
 interface Props {
   show: boolean;
@@ -8,9 +7,10 @@ interface Props {
   cart: CartItem[];
   increaseQty: (id: number) => void;
   decreaseQty: (id: number) => void;
+  clearCart: () => void;
 }
 
-export const CartModal = ({ show, onClose, cart,increaseQty, decreaseQty  }: Props) => {
+export const CartModal = ({ show, onClose, cart,increaseQty, decreaseQty,clearCart  }: Props) => {
 
   const total = cart.reduce((acc, item) => acc + item.precioCLP * item.quantity, 0);
 
@@ -76,10 +76,15 @@ export const CartModal = ({ show, onClose, cart,increaseQty, decreaseQty  }: Pro
       </Modal.Body>
 
       <Modal.Footer className="bg-dark border-secondary">
-        <Button variant="secondary" onClick={onClose}>
-          Cerrar
+        <Button variant="secondary" onClick={() =>  {alert("Operación cancelada"); onClose(); clearCart();}}>
+          Cancelar
         </Button>
-        <Button variant="success" disabled={cart.length === 0}>
+        <Button variant="success" disabled={cart.length === 0}
+          onClick={() => {alert("Transacción realizada con éxito!"); 
+            clearCart();        
+            onClose();         
+          }}
+        >
           Pagar
         </Button>
       </Modal.Footer>

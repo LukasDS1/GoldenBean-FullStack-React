@@ -42,5 +42,9 @@ export const useCart = () => {
     );
   };
 
-  return { cart, addToCart, increaseQty, decreaseQty };
+  const clearCart = () => {
+    setCart([]);
+  }
+
+  return { cart, addToCart, increaseQty, decreaseQty , clearCart};
 };

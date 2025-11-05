@@ -11,9 +11,10 @@ interface Props {
   showCart?: boolean;
   increaseQty: (id: number) => void;
   decreaseQty: (id: number) => void;
+  clearCart: () => void;
 }
 
-export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQty }: Props) => {
+export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQty,clearCart }: Props) => {
   const [query, setQuery] = useState('');
   const [showModal, setShowModal] = useState(false);
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -84,7 +85,13 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
 
               {/* BOTÓN CARRITO */}
               <Button
-                onClick={() => setShowModal(true)}
+                onClick={() =>{
+                  if (!showCart){
+                    alert("Carrito no disponible en esta vista");
+                  return;}
+                  setShowModal(true)}
+                }
+                  
                 variant="outline-light"
                 className="border-secondary text-white ms-2 position-relative"
               >
@@ -101,14 +108,13 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      {/* ⬇️ AGREGA ESTO DESPUÉS DEL RETURN */}
       <CartModal 
         show={showModal}
         onClose={() => setShowModal(false)}
         cart={cart}
         increaseQty={increaseQty}
         decreaseQty={decreaseQty}
+        clearCart={clearCart}
       />
     </>
   );
