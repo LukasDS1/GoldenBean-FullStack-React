@@ -7,7 +7,7 @@ export const getCoffebyActions = async (): Promise<coffeeProps[]> => {
     throw new Error(`Error HTTP: ${response.status}`);
   }
 
-  const data = await response.json();
+  const data:coffeeProps[] = await response.json();
 
   return data; // esto es así debido a la estructura del JSON
 };

@@ -28,7 +28,6 @@ export const CoffeApp = () => {
     }
 
     fetchData();
-
   },[]);
 
   const handleSearch = useCallback(async(query:string) => {
@@ -41,6 +40,7 @@ export const CoffeApp = () => {
 
     try {
     const results = await getCoffeeByName(query);
+    console.log(results)
     if (results.length > 0) {
       setCoffe(results);
     } else {

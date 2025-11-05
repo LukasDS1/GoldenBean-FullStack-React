@@ -3,6 +3,7 @@
     {
       "id": 1,
       "nombre": "Espresso Italiano",
+      "nombre_normalizado": "espresso italiano",
       "imagen": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Café corto y concentrado, clásico de Italia con fuerte aroma y sabor.",
       "precioCLP": 1800
@@ -10,6 +11,7 @@
     {
       "id": 2,
       "nombre": "Café Americano",
+      "nombre_normalizado": "cafe americano",
       "imagen": "https://images.unsplash.com/photo-1526263817375-0f61ee204f35?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Espresso rebajado con agua caliente, suave y balanceado.",
       "precioCLP": 2200
@@ -17,6 +19,7 @@
     {
       "id": 3,
       "nombre": "Cappuccino",
+      "nombre_normalizado": "cappuccino",
       "imagen": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Café espresso con leche caliente y espuma espesa.",
       "precioCLP": 2800
@@ -24,6 +27,7 @@
     {
       "id": 4,
       "nombre": "Latte",
+      "nombre_normalizado": "latte",
       "imagen": "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Espresso suave con abundante leche vaporizada y una fina capa de espuma.",
       "precioCLP": 3000
@@ -31,6 +35,7 @@
     {
       "id": 5,
       "nombre": "Mocha",
+      "nombre_normalizado": "mocha",
       "imagen": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Espresso con chocolate, leche vaporizada y crema batida.",
       "precioCLP": 3500
@@ -38,6 +43,7 @@
     {
       "id": 6,
       "nombre": "Flat White",
+      "nombre_normalizado": "flat white",
       "imagen": "https://images.unsplash.com/photo-1521302080334-4bebac2765e5?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Bebida cremosa con espresso y microespuma de leche.",
       "precioCLP": 3300
@@ -45,6 +51,7 @@
     {
       "id": 7,
       "nombre": "Macchiato",
+      "nombre_normalizado": "macchiato",
       "imagen": "https://images.unsplash.com/photo-1570232990149-34eab9edc7be?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Espresso manchado con una pequeña cantidad de leche espumada.",
       "precioCLP": 2600
@@ -52,6 +59,7 @@
     {
       "id": 8,
       "nombre": "Café Helado",
+      "nombre_normalizado": "cafe helado",
       "imagen": "https://images.unsplash.com/photo-1576511453841-3652962efe3b?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Café frío servido con hielo, refrescante para días calurosos.",
       "precioCLP": 2500
@@ -59,6 +67,7 @@
     {
       "id": 9,
       "nombre": "Affogato",
+      "nombre_normalizado": "affogato",
       "imagen": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Postre de helado de vainilla bañado con espresso caliente.",
       "precioCLP": 3800
@@ -66,6 +75,7 @@
     {
       "id": 10,
       "nombre": "Café Dalgona",
+      "nombre_normalizado": "cafe dalgona",
       "imagen": "https://images.unsplash.com/photo-1587583772289-1a210b47c65e?auto=format&fit=crop&w=800&q=80",
       "descripcion": "Café batido cremoso servido sobre leche fría o caliente.",
       "precioCLP": 3200
