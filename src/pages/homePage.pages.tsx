@@ -5,9 +5,17 @@ import "./HomePage.css";
 export const HomePage = () => {
   return (
     <>
-      <NavBar onQuery={() => {}} cart={[]} showCart={false} increaseQty={() => {}} decreaseQty={() => {}} clearCart={() => {}}/>
-      <div
-        className="min-vh-100 w-100"
+      <NavBar 
+        onQuery={() => {}} 
+        cart={[]} 
+        showCart={false} 
+        increaseQty={() => {}} 
+        decreaseQty={() => {}} 
+        clearCart={() => {}}
+      />
+
+      <div 
+        className="home-bg min-vh-100 w-100 d-flex justify-content-center align-items-center p-4"
         style={{
           backgroundImage: 'url(/src/assets/img/fondo.png)',
           backgroundSize: 'cover',
@@ -16,17 +24,14 @@ export const HomePage = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        <div
-          className="d-flex flex-column justify-content-center align-items-center text-center"
-          style={{ minHeight: "80vh" }}
-        >
-          <h1 className="fw-bold display-3 text-white">GoldenBean</h1>
+        <div className="home-box text-center text-white p-5">
+          <h1 className="fw-bold display-3">GoldenBean</h1>
 
-          <p className="lead text-white">
+          <p className="lead mt-3">
             Más que una cafetería, una tradición.
           </p>
 
-          <p className="text-white">
+          <p>
             Disfruta el aroma del café recién tostado y vive la experiencia.
           </p>
 
