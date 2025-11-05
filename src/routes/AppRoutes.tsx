@@ -5,7 +5,7 @@ import { BlogsPage } from "../pages/BlogsPage.pages";
 import { RegisterPage } from "../pages/RegisterPage";
 import { LoginPage } from "../pages/loginPage.pages";
 import { AboutPage } from "../pages/AboutPage.pages";
-
+import {CafeDetailComponent} from "../pages/coffeDetailComponents/coffeDetail"
 
 
 
@@ -34,7 +34,7 @@ export const AppRoutes = () => {
         {/* About Us */}
         <Route path="/about" element={<AboutPage />} />
         
-
+         <Route path="/cafe/:id" element={<CafeDetailComponent />} />
         
 
         {/* 404 */}
