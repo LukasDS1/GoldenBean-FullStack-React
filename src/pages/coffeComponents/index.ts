@@ -1,1 +1,0 @@
-export { CoffeComponent } from './CoffeComponent';
