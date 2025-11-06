@@ -11,8 +11,6 @@ export const getCoffeeByName = async (query: string): Promise<coffeeProps[]> => 
   
   const data:coffeeProps[] = await response.json();
 
-  console.log(data)
-
   return data; 
   
 };
