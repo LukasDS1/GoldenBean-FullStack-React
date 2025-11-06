@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { NavBar } from "./sharedComponents/NavBar";
-import { Footer } from "./sharedComponents/Footer";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 

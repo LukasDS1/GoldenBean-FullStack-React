@@ -4,6 +4,7 @@ import { NavBar } from './sharedComponents/NavBar';
 import type { coffeeProps } from '../interfaces/coffe.interfaces';
 import { createCoffee, deleteCoffee } from '../actions/admin.actions';
 import './AdminPanelPage.css';
+import { normalized } from '../helpers';
 
 const API = 'http://localhost:3001';
 
@@ -26,6 +27,7 @@ export const AdminPanel: React.FC = () => {
     if (!nombre || !precio) return alert('Nombre y precio obligatorios');
     const newCoffee: Omit<coffeeProps, 'id'> = {
       nombre,
+      nombre_normalizado : normalized(nombre),
       imagen: imagen || '/img/default.jpg',
       descripcion,
       precioCLP: Number(precio),
