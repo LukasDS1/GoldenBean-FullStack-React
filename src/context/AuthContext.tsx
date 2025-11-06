@@ -18,7 +18,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         (async () => {
         try {
             await auth.ensureAdmin();
-            console.log("✅ Admin ensured (creado si no existía)");
+            console.log("Admin ensured (creado si no existía)");
         } catch (err) {
             console.error("Error en ensureAdmin:", err);
         }

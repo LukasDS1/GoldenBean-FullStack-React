@@ -7,7 +7,7 @@ type Result = { ok: boolean; message: string; data?: any }
 
 export const createCoffee = async (coffee: Omit<coffeeProps, 'id'>): Promise<Result> => {
     const user = await getCurrentUser();
-
+    
     if (!user || !user.isAdmin) {
         return { ok: false, message: 'No autorizado: solo administradores pueden crear cafes' };
     }

@@ -79,6 +79,14 @@
       "imagen": "/img/dalgona.jpg",
       "descripcion": "Café batido cremoso servido sobre leche fría o caliente.",
       "precioCLP": 3200
+    },
+    {
+      "nombre": "ola",
+      "nombre_normalizado": "ola",
+      "imagen": "https://images.pexels.com/photos/7927357/pexels-photo-7927357.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "descripcion": "2323",
+      "precioCLP": 1,
+      "id": 11
     }
   ]
 }
