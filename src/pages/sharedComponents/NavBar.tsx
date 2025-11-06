@@ -61,7 +61,7 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
           <Navbar.Collapse id="navbarSupportedContent">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/catalogo" className="text-white">
-                Catalogo
+                Catálogo
               </Nav.Link>
 
               <Nav.Link as={Link} to="/blogs" className="text-white">
