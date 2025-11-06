@@ -1,22 +1,23 @@
 import { useState } from "react";
 import { NavBar } from "./sharedComponents/NavBar";
 import { Footer } from "./sharedComponents/Footer";
-import { loginUser } from "../utils/userStorage";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 
-export const LoginPage = () => {
+export const LoginPage: React.FC = () => {
     
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [msg, setMsg] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth()
+  const [ msg , setMsg ] = useState("");
 
 
-   const handleSubmit = (e: React.FormEvent) => {
+   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = loginUser(email, password);
+    const res = await login(email.trim(), password);
     setMsg(res.message);
 
     if (res.ok) {
@@ -24,6 +25,8 @@ export const LoginPage = () => {
       setPassword("");
       alert("Inicio de sesión exitoso");  
       navigate("/catalogo"); 
+    } else {
+      alert(res.message)
     }
   };
 

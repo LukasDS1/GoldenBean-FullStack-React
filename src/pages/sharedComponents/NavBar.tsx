@@ -68,6 +68,12 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
                 Blogs
               </Nav.Link>
 
+               {user?.isAdmin && (
+                <Nav.Link as={Link} to="/admin" className="text-warning fw-bold">
+                  <i className="fa-solid fa-lock me-1"></i> Panel Admin
+                </Nav.Link>
+              )}
+
               <NavDropdown
                 title={<span className="text-white"><i className="fa-solid fa-list me-1"></i>Más</span>}
                 id="basic-nav-dropdown"
@@ -77,7 +83,7 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
                 {user ? (
                   <>
                     <NavDropdown.Item className="text-white disabled">
-                      Hola, {user.nombre}
+                      Hola, {user.name}
                     </NavDropdown.Item>
                     <NavDropdown.Divider className="bg-secondary" />
                     <NavDropdown.Item onClick={handleLogout} className="text-white">
