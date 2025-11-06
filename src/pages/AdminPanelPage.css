@@ -1,0 +1,40 @@
+.admin-panel {
+  background-color: #121212;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.admin-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #f8f9fa;
+  border-radius: 12px;
+}
+
+.admin-form input {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+.admin-form input:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 5px #ffc10755;
+}
+
+.admin-form input::placeholder {
+  color: #ffffffcc; 
+  opacity: 1;       
+}
+
+.table-dark th, .table-dark td {
+  vertical-align: middle;
+}
+
+.coffee-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #555;
+}

@@ -7,17 +7,18 @@ import { getCoffebyActions , getCoffeeByName } from './actions/index.ts';
          
 import type { coffeeProps } from './interfaces/coffe.interfaces.ts';
 
-
 import { useCart } from './hooks/useCarts.ts';
 
 export const CoffeApp = () => {
-
+  
+  // Estados
   const [ coffes , setCoffe ] = useState<coffeeProps[]>([]);  
   const [ allCoffes , setAllCoffes ] = useState<coffeeProps[]>([]);
 
-const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
+  // Hook personalizados
+  const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
 
-
+  // useEffect para cargar los cafés
   useEffect(()=> {
 
     const fetchData = async() => {
@@ -34,6 +35,8 @@ const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
     fetchData();
   },[]);
 
+
+  // Lógica de búsqueda
   const handleSearch = useCallback(async(query:string) => {
     query = query.trim().toLowerCase()
 
@@ -56,7 +59,7 @@ const { cart, addToCart, increaseQty, decreaseQty,clearCart } = useCart();
   }
 }, [allCoffes]);
   
-  
+  // Render
   return (
     <div 
       className="container-fluid min-vh-100"
