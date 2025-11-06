@@ -38,7 +38,11 @@ export const AppRoutes = () => {
           } />
 
         {/* Catálogo */}
-        <Route path="/catalogo" element={<CoffeApp />} />
+        
+        <Route path="/catalogo" element={
+          <PrivateRoute>
+          <CoffeApp />
+        </PrivateRoute>}  />
         
 
         {/* Página vlogs */}
