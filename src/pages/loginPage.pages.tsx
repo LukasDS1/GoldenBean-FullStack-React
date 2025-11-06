@@ -63,8 +63,6 @@ export const LoginPage: React.FC = () => {
           <button className="btn btn-warning w-100">Entrar</button>
         </form>
       </div>
-
-      <Footer />
     </>
   );
 };

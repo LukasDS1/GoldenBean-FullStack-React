@@ -1,7 +1,7 @@
 
 import { CardBodyComponent } from "./CardBodyComponent";
 import type { coffeeProps } from "../../interfaces/coffe.interfaces"
-
+import { ImgComponent } from "./imgComponent";
 interface Props {
   coffe: coffeeProps[];
   addToCart: (item: coffeeProps) => void;
@@ -25,15 +25,11 @@ export const CardComponent = ({ coffe,addToCart }:Props) => {
                 border: '1px solid rgba(255, 255, 255, 0.2)'
               }}
             >
-              <img src={coffe.imagen} 
-                className="card-img-top" 
-                alt={coffe.nombre} 
-                style={{
-                  height: '300px',
-                  objectFit: "contain"
-                }}
-              />
+              <ImgComponent imagen={coffe.imagen} nombre={coffe.nombre} />
+
               <CardBodyComponent coffe={coffe} addToCart={addToCart} />
+
+              
 
             </div>
           </div>

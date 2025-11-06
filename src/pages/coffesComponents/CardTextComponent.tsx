@@ -5,6 +5,6 @@ interface Props {
 
 export const CardTextComponent = ({descripcion}:Props) => {
   return (
-    <p className="card-text text-center text-warning"><i className=""></i>{ descripcion }</p>
+    <p className="card-text text-center text-warning"><i className=""></i>{ descripcion } </p>
   )
 }

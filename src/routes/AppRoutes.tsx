@@ -8,7 +8,7 @@ import { AboutPage } from "../pages/AboutPage.pages";
 import { useAuth } from "../hooks/useAuth";
 import type { ReactElement } from "react";
 import { AdminPanel } from "../pages/AdminPanelPage";
-
+import {CafeDetailComponent} from "../pages/coffeDetailComponents/coffeDetail"
 
 
 const PrivateRoute = ({ children }: { children: ReactElement }) => {
@@ -60,6 +60,8 @@ export const AppRoutes = () => {
           </AdminRoute>
         } />
         
+        <Route path="/cafe/:id" element={<CafeDetailComponent />} />
+
         
         {/* 404 */}
         <Route path="*" element={<div className="text-white p-5">Página no encontrada (404)</div>} />
