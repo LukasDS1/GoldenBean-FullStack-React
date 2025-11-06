@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# ☕ Golden Bean – Full­Stack Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Visita el proyecto en GitHub](https://github.com/LukasDS1/GoldenBean-FullStack-React)
 
-Currently, two official plugins are available:
+## 📖 Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Golden Bean surgió de una esquina olvidada, transformada por la promesa de un aroma profundo y un calor reconfortante.  
+Sus paredes, vestidas de ladrillo y madera curtida, atesoran el eco silencioso de granos tostados con esmero, un proceso que se repite cada mañana con precisión ritual.
 
-## React Compiler
+Hoy, ese rincón ya no está olvidado. Se ha convertido en un referente silencioso pero esencial, un lugar de renombre que atrae a quienes buscan autenticidad en cada sorbo. Su fama no se anuncia con ruido, sino que se expande con el mismo aroma que una vez lo fundó: el olor inconfundible del café recién tostado que ahora impregna no solo el local, sino también la memoria del barrio.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Esta reputación se sustenta en una selección impecable de productos premium. Cada grano proviene de microlotes cuidadosamente elegidos por su perfil de sabor único y su trazabilidad ética. La carta, concisa pero exquisita, ofrece desde un espresso balanceado y complejo hasta métodos de filtro que destacan notas frutales y florales.
 
-## Expanding the ESLint configuration
+La app replica ese espíritu: un catálogo digital de cafés premium, accesible, elegante, listo para que el usuario explore, busque y se enamore del café tanto como del lugar que lo inspiró.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Funcionalidades principales
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Catálogo de cafés premium con información detallada. 
+- Búsqueda avanzada dentro del catálogo por nombre.
+- Diseño visual que evoca la calidez y elegancia de la cafetería artesanal.
+  
+## 🧩 Tecnologías usadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Frontend**: React + TypeScript + Vite.
+- **Backend**: Node.js + Vecel
+- **Base de datos / API**: JSON-server
+- **Estilos**: CSS / estilo personalizado
+- **Control de versiones**: Git & GitHub.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+> _Nota_: “página web hecha en React con TypeScript + SWC”.
