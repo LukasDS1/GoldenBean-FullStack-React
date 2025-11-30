@@ -3,8 +3,8 @@ import { Navbar, Nav, NavDropdown, Container, Form, Button } from 'react-bootstr
 import { Link } from "react-router-dom";
 import type { CartItem } from "../../interfaces/cart.interfaces";
 import { CartModal } from "../cartComponent/cartModal";
-import { getLoggedUser, logoutUser } from "../../utils/userStorage";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 
 
@@ -22,13 +22,15 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
   const [showModal, setShowModal] = useState(false);
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const navigate = useNavigate();
-  const user = getLoggedUser();
+  const { user } = useAuth();
+
+  const { logout } = useAuth();
 
   const handleLogout = () => {
-    logoutUser();
-    navigate("/");
-    window.location.reload();
-  };
+  logout();
+  navigate("/");
+};
+
 
 
   useEffect(() => {
@@ -83,7 +85,7 @@ export const NavBar = ({ onQuery, cart, showCart = true, increaseQty, decreaseQt
                 {user ? (
                   <>
                     <NavDropdown.Item className="text-white disabled">
-                      Hola, {user.name}
+                      Hola, {user.username}
                     </NavDropdown.Item>
                     <NavDropdown.Divider className="bg-secondary" />
                     <NavDropdown.Item onClick={handleLogout} className="text-white">

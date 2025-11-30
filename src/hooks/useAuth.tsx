@@ -1,14 +1,8 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
+
 import type { loginRequest } from "../interfaces/auth.interfaces";
 import { loginUser } from "../service/authService";
-
-/*
-Interface decodedToken:
-sub : username
-role : user role
-exp : expiration time 
-*/
 
 interface DecodedToken {
   sub: string;
@@ -17,15 +11,10 @@ interface DecodedToken {
 }
 
 interface AuthContextProps {
-  user: {
-    username: string;
-    role: string;
-    isAdmin: boolean;
-  } | null;
+  user: any;
   login: (payload: loginRequest) => Promise<any>;
   logout: () => void;
 }
-
 
 const AuthContext = createContext<AuthContextProps>(null!);
 
@@ -35,7 +24,7 @@ export function AuthProvider({ children }: any) {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
-    
+
     try {
       const decoded: DecodedToken = jwtDecode(token);
       setUser({
@@ -48,7 +37,6 @@ export function AuthProvider({ children }: any) {
       localStorage.removeItem("token");
     }
   }, []);
-
 
   const login = async (payload: loginRequest) => {
     const res = await loginUser(payload);

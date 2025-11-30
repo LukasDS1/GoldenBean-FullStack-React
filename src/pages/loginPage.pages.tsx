@@ -1,54 +1,66 @@
 import { useState } from "react";
 import { NavBar } from "./sharedComponents/NavBar";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-
+import { useAuth } from "../context/AuthContext"; 
 
 export const LoginPage: React.FC = () => {
-    
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [msg, setMsg] = useState("");
+
   const navigate = useNavigate();
-  const { login } = useAuth()
-  const [ msg , setMsg ] = useState("");
+  const { login } = useAuth();
 
-
-   const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await login(email.trim(), password);
-    setMsg(res.message);
-
-    if (res.ok) {
-      setEmail("");
-      setPassword("");
-      alert("Inicio de sesión exitoso");  
-      navigate("/catalogo"); 
-    } else {
-      alert(res.message)
+    if (!username.trim() || !password.trim()) {
+      setMsg("Todos los campos son obligatorios");
+      return;
     }
+
+    const res = await login({
+      username: username.trim(),
+      password,
+    });
+
+    if (!res.ok) {
+      setMsg(res.message);
+      return;
+    }
+
+    console.log("Login OK");
+
+    navigate("/"); 
   };
 
   return (
     <>
       <NavBar 
         onQuery={() => {}} 
-        cart={[]} showCart={false}
-        increaseQty={() => {}} decreaseQty={() => {}} clearCart={() => {}}
+        cart={[]} 
+        showCart={false}
+        increaseQty={() => {}} 
+        decreaseQty={() => {}} 
+        clearCart={() => {}} 
       />
 
       <div className="container min-vh-100 d-flex justify-content-center align-items-center">
-        <form onSubmit={handleSubmit} className="card p-4 bg-dark text-white shadow" style={{ width: "400px" }}>
+        <form
+          onSubmit={handleLogin}
+          className="card p-4 bg-dark text-white shadow"
+          style={{ width: "400px" }}
+        >
           <h2 className="text-center mb-3">Iniciar Sesión</h2>
 
           {msg && <div className="alert alert-warning">{msg}</div>}
 
-          <label>Email</label>
+          <label>Username</label>
           <input
             className="form-control mb-2"
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            type="text"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
           />
 
           <label>Contraseña</label>
