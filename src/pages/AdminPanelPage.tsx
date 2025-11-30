@@ -6,7 +6,7 @@ import { createCoffee, deleteCoffee } from '../actions/admin.actions';
 import './AdminPanelPage.css';
 import { normalized } from '../helpers';
 
-const API = 'http://localhost:3001';
+const API = 'http://localhost:8080/api-v1/coffee';
 
 export const AdminPanel: React.FC = () => {
   const [list, setList] = useState<coffeeProps[]>([]);
@@ -16,9 +16,9 @@ export const AdminPanel: React.FC = () => {
   const [precio, setPrecio] = useState<number | ''>('');
 
   const load = async () => {
-    const res = await fetch(`${API}/coffe`);
-    const data = await res.json();
-    setList(data);
+    const res = await fetch(`${API}`);
+    const json = await res.json();
+    setList(json.data);
   };
 
   useEffect(() => { load(); }, []);
@@ -27,7 +27,7 @@ export const AdminPanel: React.FC = () => {
     if (!nombre || !precio) return alert('Nombre y precio obligatorios');
     const newCoffee: Omit<coffeeProps, 'id'> = {
       nombre,
-      nombre_normalizado : normalized(nombre),
+      nombreNormalizado : normalized(nombre),
       imagen: imagen || '/img/default.jpg',
       descripcion,
       precioCLP: Number(precio),

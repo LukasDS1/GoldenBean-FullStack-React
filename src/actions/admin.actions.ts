@@ -1,7 +1,7 @@
 import type { coffeeProps } from "../interfaces/coffe.interfaces";
 import { getCurrentUser } from "./auth.actions";
 
-const API = 'http://localhost:3001/coffe';
+const API = 'http://localhost:8080/api-v1/coffee';
 
 type Result = { ok: boolean; message: string; data?: any }
 
@@ -22,7 +22,9 @@ export const createCoffee = async (coffee: Omit<coffeeProps, 'id'>): Promise<Res
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
-        return { ok: true, message: 'Café creado exitosamente', data };
+        return { ok: true,
+                message: 'Café creado exitosamente', 
+                data: data.data };
     } catch (error) {
         console.error('Error al crear café: ', error);
         return { ok: false, message: 'Error al crear café' }

@@ -4,5 +4,5 @@ export interface coffeeProps {
     imagen: string;
     descripcion: string;
     precioCLP: number;
-    nombre_normalizado: string;
+    nombreNormalizado: string;
 }
