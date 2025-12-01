@@ -23,9 +23,6 @@ describe("useAuth - register & login", () => {
     vi.clearAllMocks();
   });
 
-  // -------------------------
-  //   TEST REGISTER
-  // -------------------------
   it("register debe llamar registerUser con los datos correctos", async () => {
     const mockResponse = { ok: true, message: "Registrado" };
     (registerUser as any).mockResolvedValue(mockResponse);
@@ -61,9 +58,7 @@ describe("useAuth - register & login", () => {
     expect(res).toEqual(mockResponse);
   });
 
-  // -------------------------
-  //   TEST LOGIN
-  // -------------------------
+
   it("login debe llamar loginUser con los datos correctos", async () => {
     const mockResponse = { ok: true, token: "abc123" };
     (loginUser as any).mockResolvedValue(mockResponse);

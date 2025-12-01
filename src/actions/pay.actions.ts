@@ -16,3 +16,4 @@ export const payRequest = async (email: string, cart: any[]) => {
   if (!res.ok) throw new Error("Error en la transacción");
   return res.json();
 };
+
