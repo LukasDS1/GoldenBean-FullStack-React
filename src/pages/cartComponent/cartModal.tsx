@@ -1,7 +1,7 @@
 import { Modal, Button } from "react-bootstrap";
 import type { CartItem } from "../../interfaces/cart.interfaces";
 import { payRequest } from "../../actions/pay.actions"
-import { getCurrentUser } from "../../actions/auth.actions";
+import { useAuth } from "../../context/AuthContext";
 
 interface Props {
   show: boolean;
@@ -13,31 +13,30 @@ interface Props {
 }
 
 export const CartModal = ({ show, onClose, cart,increaseQty, decreaseQty,clearCart  }: Props) => {
+    const { user } = useAuth();
 
   const total = cart.reduce((acc, item) => acc + item.precioCLP * item.quantity, 0);
 
   const handlePay = async () => {
-    const user = await getCurrentUser()
-
-    if (!user) {
-      alert("Debes iniciar sesión para pagar")
-      return
-    }
-
-    try {
-       const email = user.email
-
-       const response = await payRequest(email, cart)
-
-       alert(`Pago realizado con éxito por $${response.data.totalPrice}`)
-
-       clearCart()
-       onClose()
-    } catch (err) {
-      alert("No se pudo procesar el pago")
-      console.error(err)
-    }
+  if (!user) {
+    alert("Debes iniciar sesión para pagar");
+    return;
   }
+
+  try {
+    const email = user.username;
+
+    const response = await payRequest(email, cart);
+
+    alert(`Pago realizado con éxito por $${response.data.totalPrice}`);
+
+    clearCart();
+    onClose();
+  } catch (err) {
+    alert("No se pudo procesar el pago");
+    console.error(err);
+  }
+}
 
   return (
     <Modal show={show} onHide={onClose} centered size="lg" backdrop="static">
