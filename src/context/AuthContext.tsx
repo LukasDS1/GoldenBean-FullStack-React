@@ -26,16 +26,15 @@ interface AuthContextProps {
   logout: () => void;
 }
 
-
 const AuthContext = createContext<AuthContextProps>(null!);
 
 export function AuthProvider({ children }: any) {
+
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
-    
     try {
       const decoded: DecodedToken = jwtDecode(token);
       setUser({
